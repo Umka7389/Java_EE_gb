@@ -1,8 +1,11 @@
+ru\gb\CatalogControllerServlet.class
+ru\gb\CartControllerServlet.class
 ru\gb\ErrorServlet403.class
-ru\gb\ProductServlet.class
-ru\gb\MainServlet.class
-ru\gb\OrderServlet.class
-ru\gb\CartServlet.class
+ru\gb\ProductControllerServlet.class
+ru\gb\MainControllerServlet.class
+ru\gb\OrderControllerServlet.class
+ru\gb\persist\Product.class
+ru\gb\persist\ProductRepository.class
 ru\gb\ErrorServlet404.class
 ru\gb\filter\Filter.class
-ru\gb\CatalogServlet.class
+ru\gb\listner\AppBootstrapListener.class
