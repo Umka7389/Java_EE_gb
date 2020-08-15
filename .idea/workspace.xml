@@ -5,25 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0013de97-9abe-4641-b408-caea68ad566c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/product.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/CartControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/CartControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/CatalogControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/CatalogControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/ErrorServlet403.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/ErrorServlet404.java" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/ErrorControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/MainControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/MainControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/OrderControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/OrderControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/ProductControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/ProductControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/persist/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/java/ru/gb/persist/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/catalog.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/catalog.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/fragments/navigation.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/fragments/navigation.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/order.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/src/main/webapp/WEB-INF/porduct.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/first-web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/first-web-app/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
