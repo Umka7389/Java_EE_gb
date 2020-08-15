@@ -1,16 +1,11 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Umka7
-  Date: 12.08.2020
-  Time: 13:35
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
+<jsp:include page="fragments/head.jsp"/>
 <body>
+<jsp:include page="fragments/navigation.jsp">
+    <jsp:param name="pageName" value="Заказ"/>
+</jsp:include>
+<jsp:include page="fragments/scripts.jsp"/>
 
 </body>
 </html>

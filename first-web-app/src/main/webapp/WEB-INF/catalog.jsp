@@ -1,11 +1,13 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html"%>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>JSP Page</title>
-</head>
+<jsp:include page="fragments/head.jsp"/>
+
 <body>
-<%@include file="/WEB-INF/jspf/menu.jsp" %>
-<h1>Это каталог товаров</h1>
+<jsp:include page="fragments/navigation.jsp">
+    <jsp:param name="pageName" value="Каталог"/>
+</jsp:include>
+<jsp:include page="fragments/scripts.jsp"/>
+
 </body>
 </html>

@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.Optional;
 
-@WebServlet(name = "ProductControllerServlet", urlPatterns = {"", "/"})
+@WebServlet(name = "ProductControllerServlet", urlPatterns = {"/product", "/new", "/edit", "/upsert"})
 public class ProductControllerServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductControllerServlet.class);
@@ -33,17 +33,18 @@ public class ProductControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("Index product page");
+        req.setAttribute("activePage", "product");
 
-        if (req.getServletPath().equals("/")) {
+        if (req.getServletPath().equals("/product")) {
             try {
                 req.setAttribute("products", productRepository.findAll());
-                getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
+                getServletContext().getRequestDispatcher("/WEB-INF/product.jsp").forward(req, resp);
             } catch (SQLException ex) {
                 throw new IllegalStateException(ex);
             }
         } else if (req.getServletPath().equals("/new")) {
             req.setAttribute("product", new Product());
-            getServletContext().getRequestDispatcher("/WEB-INF/product.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
         } else if (req.getServletPath().equals("/edit")) {
             String id = req.getParameter("id");
             try {
@@ -57,7 +58,7 @@ public class ProductControllerServlet extends HttpServlet {
             } catch (SQLException ex) {
                 throw new IllegalStateException(ex);
             }
-            getServletContext().getRequestDispatcher("/WEB-INF/product.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
         } else {
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
@@ -72,14 +73,14 @@ public class ProductControllerServlet extends HttpServlet {
                     productRepository.insert(new Product(-1L,
                             req.getParameter("name"),
                             req.getParameter("description"),
-                            null));
+                            new BigDecimal(req.getParameter("price"))));
                 } else {
                     productRepository.update(new Product(Long.parseLong(strId),
                             req.getParameter("name"),
                             req.getParameter("description"),
-                            null));
+                            new BigDecimal(req.getParameter("price"))));
                 }
-                resp.sendRedirect(getServletContext().getContextPath());
+                resp.sendRedirect(getServletContext().getContextPath()+"/product");
             } catch (SQLException ex) {
                 throw new IllegalStateException(ex);
             }
