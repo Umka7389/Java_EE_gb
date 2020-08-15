@@ -1,6 +1,6 @@
-out
-first-web-app/target
-.idea
+/out
+/first-web-app/target
+/.idea
 
 # Compiled class file
 *.class
