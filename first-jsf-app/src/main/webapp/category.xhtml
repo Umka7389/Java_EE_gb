@@ -18,7 +18,7 @@
 <h:body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Products</a>
+    <a class="navbar-brand" href="#">Category</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,10 +27,10 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li>
+            <li class="nav-item active">
                 <h:link styleClass="nav-link" value="Category" outcome="category"/>
             </li>
-            <li class="nav-item active">
+            <li>
                 <h:link styleClass="nav-link" value="Products" outcome="index"/>
             </li>
             <li>
@@ -43,50 +43,7 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="row py-2">
-        <h:form id="productsForm">
-            <div class="col-12">
-                <h:commandButton value="Add product" styleClass="btn btn-primary" action="#{productController.createProduct}"/>
-            </div>
 
-            <div class="col-12">
-                <h:dataTable value="#{productController.allProducts}"
-                             styleClass="table table-bordered my-2"
-                             var="prod">
-                    <h:column>
-                        <f:facet name="header">Id</f:facet>
-                        #{prod.id}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Name</f:facet>
-                        #{prod.name}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Description</f:facet>
-                        #{prod.description}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Price</f:facet>
-                        #{prod.price}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Action</f:facet>
-                        <h:commandLink value="Edit" styleClass="btn btn-success"
-                                         action="#{productController.editProduct(prod)}">
-                            <i class="fas fa-edit"></i>
-                        </h:commandLink>
-                        <h:commandLink value="Delete" styleClass="btn btn-danger"
-                                       action="#{productController.deleteProduct(prod)}">
-                            <f:ajax action="event" render="productsForm"/>
-                            <i class="far fa-trash-alt"></i>
-                        </h:commandLink>
-                    </h:column>
-                </h:dataTable>
-            </div>
-        </h:form>
-    </div>
-</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
