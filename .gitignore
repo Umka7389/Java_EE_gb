@@ -1,5 +1,6 @@
 out
 first-web-app/target
+first-jsf-app/target
 .idea
 
 # Compiled class file

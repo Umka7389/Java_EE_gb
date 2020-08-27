@@ -71,6 +71,14 @@
                         #{prod.price}
                     </h:column>
                     <h:column>
+                        <f:facet name="header">Category</f:facet>
+                        #{prod.category.name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Brand</f:facet>
+                        #{prod.brand.name}
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Action</f:facet>
                         <h:commandLink value="Edit" styleClass="btn btn-success"
                                          action="#{productController.editProduct(prod)}">
