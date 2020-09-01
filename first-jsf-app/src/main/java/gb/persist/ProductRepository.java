@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -19,8 +22,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-@ApplicationScoped
-@Named
+@Stateless
 public class ProductRepository {
 
     private static final Logger logger = LoggerFactory.getLogger(ProductRepository.class);
@@ -28,10 +30,7 @@ public class ProductRepository {
     @PersistenceContext(unitName = "ds")
     private EntityManager em;
 
-    @Resource
-    private UserTransaction ut;
-
-    @Inject
+    @EJB
     private CategoryRepository categoryRepository;
 
     @Inject
@@ -40,67 +39,16 @@ public class ProductRepository {
     public ProductRepository(){
     }
 
-    @PostConstruct
-    public void init() {
-        logger.info("CategoryRepository init");
 
-        if (categoryRepository.findAll().isEmpty()) {
-            logger.info("No categories in DB. Initializing.");
-
-            categoryRepository.insert(new Category(null, "Laptop"));
-            categoryRepository.insert(new Category(null, "Tablet"));
-            categoryRepository.insert(new Category(null, "Netbook"));
-        }
-
-        logger.info("ProductRepository init");
-
-        if (brandRepository.findAll().isEmpty()) {
-            logger.info("No brands in DB. Initializing.");
-
-            brandRepository.insert(new Brand(null, "Apple"));
-            brandRepository.insert(new Brand(null, "MSI"));
-            brandRepository.insert(new Brand(null, "SONY"));
-        }
-
-        logger.info("BrandRepository init");
-
-        if (this.findAll().isEmpty()) {
-            logger.info("No products in DB. Initializing.");
-
-            try {
-                ut.begin();
-
-                this.insert(new Product(null, "Apple Macbook pro 2015", "Apple profession laptop",
-                        new BigDecimal(3000), categoryRepository.findByName("Laptop").get(), brandRepository.findByName("Apple").get()));
-                this.insert(new Product(null, "Apple Macbook air 2015", "Apple netbook",
-                        new BigDecimal(2000), categoryRepository.findByName("Netbook").get(),brandRepository.findByName("MSI").get()));
-                this.insert(new Product(null, "Apple iPad", "Apple tablet",
-                        new BigDecimal(1000), categoryRepository.findByName("Tablet").get(),brandRepository.findByName("MSI").get()));
-
-                ut.commit();
-            } catch (Exception ex) {
-                logger.error("", ex);
-                try {
-                    ut.rollback();
-                } catch (SystemException e) {
-                    logger.error("", e);
-                }
-            }
-        }
-    }
-
-    @Transactional
     public void insert(Product product) {
         em.persist(product);
 
     }
 
-    @Transactional
     public void update(Product product){
         em.merge(product);
     }
 
-    @Transactional
     public void delete(long id) {
         Product product = em.find(Product.class, id );
         if (product != null){

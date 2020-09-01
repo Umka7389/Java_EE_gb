@@ -1,9 +1,10 @@
 package gb.controller;
 
 import gb.persist.*;
-
+import gb.service.ProductRepr;
+import gb.service.ProductService;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
@@ -12,48 +13,48 @@ import java.util.List;
 @Named
 public class ProductController implements Serializable {
 
-    @Inject
-    private ProductRepository productRepository;
+    @EJB
+    private ProductService productService;
 
-    @Inject
+    @EJB
     private CategoryRepository categoryRepository;
 
-    @Inject
+    @EJB
     private BrandRepository brandRepository;
 
-    private Product product;
+    private ProductRepr productRepr;
 
-    public Product getProduct() {
-        return product;
+    public ProductRepr getProduct() {
+        return productRepr;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct(ProductRepr productRepr) {
+        this.productRepr = productRepr;
     }
 
-    public List <Product> getAllProducts() {
-        return productRepository.findAll();
+    public List <ProductRepr> getAllProducts() {
+        return productService.findAll();
     }
 
-    public String editProduct(Product product){
-        this.product = product;
+    public String editProduct(ProductRepr productRepr){
+        this.productRepr = productRepr;
         return "/product.xhtml?faces-redirect=true";
     }
 
-    public void deleteProduct (Product product) {
-        productRepository.delete(product.getId());
+    public void deleteProduct (ProductRepr productRepr) {
+        productService.delete(productRepr.getId());
     }
 
     public String createProduct() {
-        this.product = new Product();
+        this.productRepr = new ProductRepr();
         return "/product.xhtml?faces-redirect=true";
     }
 
     public String saveProduct() {
-        if (product.getId()!= null){
-            productRepository.update(product);
+        if (productRepr.getId()!= null){
+            productService.update(productRepr);
         } else {
-            productRepository.insert(product);
+            productService.insert(productRepr);
         }
         return "/index.xhtml?faces-redirect=true";
     }

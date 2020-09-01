@@ -4,6 +4,8 @@ package gb.persist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -14,8 +16,7 @@ import javax.transaction.UserTransaction;
 import java.util.List;
 import java.util.Optional;
 
-@ApplicationScoped
-@Named
+@Stateless
 public class BrandRepository {
 
     private static final Logger logger = LoggerFactory.getLogger(BrandRepository.class);
@@ -23,24 +24,21 @@ public class BrandRepository {
     @PersistenceContext(unitName = "ds")
     private EntityManager em;
 
-    @Inject
-    private UserTransaction ut;
-
     public BrandRepository(){
     }
 
-    @Transactional
+    @TransactionAttribute
     public void insert(Brand brand) {
         em.persist(brand);
 
     }
 
-    @Transactional
+    @TransactionAttribute
     public void update(Brand brand){
         em.merge(brand);
     }
 
-    @Transactional
+    @TransactionAttribute
     public void delete(long id) {
         Brand brand = em.find(Brand.class, id );
         if (brand != null){

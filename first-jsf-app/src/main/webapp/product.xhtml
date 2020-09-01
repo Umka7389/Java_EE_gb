@@ -66,7 +66,7 @@
                     <h:outputLabel value="Category"/>
                     <h:selectOneListbox size="1" styleClass="form-control" id="category"
                                         placeholder="Choose category"
-                                        value="#{productController.product.category.id}">
+                                        value="#{productController.product.categoryId}">
                         <f:selectItems value="#{productController.allCategories}"
                                        var="cat"
                                        itemValue="#{cat.id}"
@@ -78,11 +78,11 @@
                     <h:outputLabel value="Brand"/>
                     <h:selectOneListbox size="1" styleClass="form-control" id="brand"
                                         placeholder="Choose brand"
-                                        value="#{productController.product.brand.id}">
+                                        value="#{productController.product.brandId}">
                         <f:selectItems value="#{productController.allBrands}"
-                                       var="cat"
-                                       itemValue="#{cat.id}"
-                                       itemLabel="#{cat.name}"
+                                       var="brand"
+                                       itemValue="#{brand.id}"
+                                       itemLabel="#{brand.name}"
                                        itemLabelEscaped="true"/>
                     </h:selectOneListbox>
                 </div>

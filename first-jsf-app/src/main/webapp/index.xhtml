@@ -72,11 +72,11 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">Category</f:facet>
-                        #{prod.category.name}
+                        #{prod.categoryName}
                     </h:column>
                     <h:column>
                         <f:facet name="header">Brand</f:facet>
-                        #{prod.brand.name}
+                        #{prod.brandName}
                     </h:column>
                     <h:column>
                         <f:facet name="header">Action</f:facet>
@@ -88,6 +88,9 @@
                                        action="#{productController.deleteProduct(prod)}">
                             <f:ajax action="event" render="productsForm"/>
                             <i class="far fa-trash-alt"></i>
+                        </h:commandLink>
+                        <h:commandLink value="Add to cart" styleClass="btn btn-success"
+                                       action="#{cartController.addToCart(prod)}">
                         </h:commandLink>
                     </h:column>
                 </h:dataTable>
