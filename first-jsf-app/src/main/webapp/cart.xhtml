@@ -43,8 +43,55 @@
     </div>
 </nav>
 
+    <div class="container">
+        <div class="row py-2">
+            <h:form id="cartForm">
+                <div class="col-12">
+                </div>
 
-<!-- Optional JavaScript -->
+                <div class="col-12">
+                    <h:dataTable value="#{cartController.allProducts}"
+                                 styleClass="table table-bordered my-2"
+                                 var="cart">
+                        <h:column>
+                            <f:facet name="header">Id</f:facet>
+                            #{cart.id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Name</f:facet>
+                            #{cart.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Description</f:facet>
+                            #{cart.description}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Price</f:facet>
+                            #{cart.price}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Category</f:facet>
+                            #{cart.categoryName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Brand</f:facet>
+                            #{cart.brandName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Action</f:facet>
+                            <h:commandLink value="Delete" styleClass="btn btn-danger"
+                                           action="#{cartController.deleteFromCart(cart)}">
+                                <f:ajax action="event" render="cartForm"/>
+                                <i class="far fa-trash-alt"></i>
+                            </h:commandLink>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </h:form>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

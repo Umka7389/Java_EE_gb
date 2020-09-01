@@ -42,6 +42,7 @@ public class ProductRepository {
 
     public void insert(Product product) {
         em.persist(product);
+
     }
 
     public void update(Product product){

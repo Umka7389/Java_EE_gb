@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Stateless
@@ -51,8 +52,6 @@ public class ProductServiceImpl implements ProductService{
                 category,
                 brand);
         productRepository.update(product);
-
-
     }
 
     @TransactionAttribute
@@ -71,7 +70,12 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<ProductRepr> findAll() {
         return productRepository.findAll().stream()
-                .map(ProductRepr::new)
+                .map(new Function<Product, ProductRepr>() {
+                    @Override
+                    public ProductRepr apply(Product product) {
+                        return new ProductRepr(product);
+                    }
+                })
                 .collect(Collectors.toList());
     }
 }

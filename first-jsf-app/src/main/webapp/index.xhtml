@@ -89,6 +89,9 @@
                             <f:ajax action="event" render="productsForm"/>
                             <i class="far fa-trash-alt"></i>
                         </h:commandLink>
+                        <h:commandLink value="Add to cart" styleClass="btn btn-success"
+                                       action="#{cartController.addToCart(prod)}">
+                        </h:commandLink>
                     </h:column>
                 </h:dataTable>
             </div>
