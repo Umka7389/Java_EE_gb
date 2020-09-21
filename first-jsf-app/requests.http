@@ -1,0 +1,36 @@
+GET http://localhost:8080/first-jsf-app/api/product
+
+###
+POST http://localhost:8080/first-jsf-app/api/product
+Content-Type: application/json
+
+{
+  "brandId": 3,
+  "brandName": "SONY",
+  "categoryId": 2,
+  "categoryName": "Notebook",
+  "description": "REST Apple profession laptop",
+  "name": "REST Apple Macbook pro 2015",
+  "price": 3000.00
+}
+
+###
+DELETE http://localhost:8080/first-jsf-app/api/product/17
+
+###
+PUT http://localhost:8080/first-jsf-app/api/product
+Content-Type: application/json
+
+{
+  "id": 8,
+  "brandId": 3,
+  "brandName": "SONY",
+  "categoryId": 2,
+  "categoryName": "Notebook",
+  "description": "Update REST Apple profession laptop",
+  "name": "REST Apple Macbook pro 2015",
+  "price": 3000.00
+}
+
+###
+GET http://localhost:8080/first-jsf-app/api/product/1
