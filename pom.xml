@@ -13,6 +13,7 @@
         <module>first-web-app</module>
         <module>first-jsf-app</module>
         <module>first-jsf-app</module>
+        <module>ws-client</module>
     </modules>
 
 </project>

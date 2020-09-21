@@ -1,0 +1,16 @@
+gb\service\ObjectFactory.class
+gb\service\FindByIdWS.class
+gb\service\DeleteResponse.class
+gb\service\Delete.class
+gb\service\Update.class
+gb\service\package-info.class
+gb\service\ProductServiceWs.class
+gb\service\UpdateResponse.class
+gb\service\FindAllResponse.class
+gb\service\Insert.class
+Main.class
+gb\service\FindAll.class
+gb\service\FindByIdWSResponse.class
+gb\service\InsertResponse.class
+gb\service\ProductService.class
+gb\service\ProductRepr.class
