@@ -3,15 +3,23 @@ package gb.controller;
 import gb.persist.*;
 import gb.service.ProductRepr;
 import gb.service.ProductService;
+
+import javax.annotation.Resource;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.DenyAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
+import javax.ejb.SessionContext;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
+@DeclareRoles({"ADMIN","GUEST"})
 @SessionScoped
 @Named
 public class ProductController implements Serializable {
+
 
     @EJB
     private ProductService productService;
@@ -36,15 +44,18 @@ public class ProductController implements Serializable {
         return productService.findAll();
     }
 
+    @DenyAll
     public String editProduct(ProductRepr productRepr){
         this.productRepr = productRepr;
         return "/product.xhtml?faces-redirect=true";
     }
 
+    @RolesAllowed("ADMIN")
     public void deleteProduct (ProductRepr productRepr) {
         productService.delete(productRepr.getId());
     }
 
+    @RolesAllowed("ADMIN")
     public String createProduct() {
         this.productRepr = new ProductRepr();
         return "/product.xhtml?faces-redirect=true";

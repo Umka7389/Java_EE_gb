@@ -1,5 +1,6 @@
 package gb.service;
 
+import javax.annotation.security.DenyAll;
 import javax.ejb.Local;
 import java.util.List;
 import java.util.Optional;
@@ -11,6 +12,7 @@ public interface ProductService {
     void insert(ProductRepr productRepr);
 
     void update(ProductRepr productRepr);
+
 
     void delete(long id);
 

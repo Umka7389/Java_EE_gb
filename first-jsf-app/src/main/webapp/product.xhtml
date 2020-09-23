@@ -40,6 +40,19 @@
             <li>
                 <h:link styleClass="nav-link" value="Cart" outcome="cart"/>
             </li>
+            <li>
+                <h:link styleClass="nav-link" value="Login" outcome="login"/>
+            </li>
+            <li>
+                <h:form rendered="#{request.userPrincipal != null}">
+                    <h:link styleClass="nav-link" value="Users DB" outcome="admin/users"/>
+                </h:form>
+            </li>
+            <li >
+                <h:form rendered="#{request.userPrincipal != null}">
+                    <h:commandLink styleClass="nav-link" action="#{userController.logout()}" value="Logout #{request.userPrincipal.name}"/>
+                </h:form>
+            </li>
         </ul>
     </div>
 </nav>
